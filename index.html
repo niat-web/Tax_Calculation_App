@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculation App</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-primary text-white text-center py-4">
+        <div class="container">
+            <h1>Tax Calculation App</h1>
+            <p>Calculate your tax liability with ease.</p>
+            <button id="darkModeToggle" class="btn btn-light"><i class="fas fa-moon"></i> Dark Mode</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-4">
+        <div class="row">
+            <!-- Input Form -->
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Income & Deductions</h5>
+                        <form id="taxForm">
+                            <div class="form-group">
+                                <label for="salary">Salary/Income:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter salary" required>
+                                </div>
+                                <div class="invalid-feedback">Please enter your salary.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bonus">Bonus/Other Income:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="bonus" name="bonus" placeholder="Enter bonus or other income">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deductions80C">80C Deductions (Provident Fund, Life Insurance):</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="deductions80C" name="deductions80C" placeholder="Enter 80C deductions">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="medicalExpenses">Medical Expenses Deductions:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <input type="number" class="form-control" id="medicalExpenses" name="medicalExpenses" placeholder="Enter medical expenses deductions">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">Country:</label>
+                                <select class="form-control" id="country" name="country">
+                                    <option value="US">United States</option>
+                                    <option value="India">India</option>
+                                    <option value="UK">United Kingdom</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">Calculate Tax</button>
+                            <button type="reset" class="btn btn-secondary btn-block">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output/Display -->
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Tax Calculation Breakdown</h5>
+                        <div id="taxBreakdown">
+                            <p><strong>Total Income:</strong> <span id="totalIncomeDisplay">$0.00</span></p>
+                            <p><strong>Taxable Income:</strong> <span id="taxableIncomeDisplay">$0.00</span></p>
+                            <p><strong>Tax Liability:</strong> <span id="taxLiabilityDisplay">$0.00</span></p>
+                            <p><strong>Net Income After Tax:</strong> <span id="netIncomeDisplay">$0.00</span></p>
+                            <div id="taxSlabBreakdown">
+                                <!-- Tax slab breakdown will be displayed here -->
+                            </div>
+                            <button id="downloadSummary" class="btn btn-sm btn-success mt-2"><i class="fas fa-download"></i> Download Summary</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Tax Optimization Suggestions</h5>
+                        <ul id="taxOptimizationSuggestions">
+                            <li>Consider investing more in tax-saving schemes.</li>
+                            <li>Check if you are eligible for additional deductions.</li>
+                        </ul>
+                        <p><em>This is not financial advice. Consult with a professional tax advisor.</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <p>&copy; 2024 Tax Calculation App. All rights reserved.</p>
+            <a href="#" class="text-white">Privacy Policy</a> | <a href="#" class="text-white">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

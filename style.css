@@ -1,0 +1,141 @@
+/* style.css */
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --light-bg: #f9f9f9;
+    --dark-bg: #333;
+    --light-text: #333;
+    --dark-text: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-duration: 0.3s;
+}
+
+[data-theme="dark"] {
+    --light-bg: #333;
+    --dark-bg: #f9f9f9;
+    --light-text: #fff;
+    --dark-text: #333;
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+header {
+    background-color: var(--primary-color) !important;
+}
+
+main {
+    padding: 20px 0;
+}
+
+.card {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+    border: none;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.form-control {
+    background-color: var(--light-bg);
+    color: var(--light-text);
+    border: 1px solid #ced4da;
+    transition: background-color var(--transition-duration), color var(--transition-duration);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: background-color var(--transition-duration), border-color var(--transition-duration);
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    transition: background-color var(--transition-duration), border-color var(--transition-duration);
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+    border-color: #545b62;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+footer {
+    background-color: var(--secondary-color) !important;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#taxBreakdown p {
+    margin-bottom: 5px;
+}
+
+#taxOptimizationSuggestions {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+#downloadSummary {
+    transition: transform 0.2s ease-in-out;
+}
+
+#downloadSummary:hover {
+    transform: scale(1.05);
+}
+
+#darkModeToggle {
+    transition: transform 0.2s ease-in-out, background-color var(--transition-duration), color var(--transition-duration);
+}
+
+#darkModeToggle:hover {
+    transform: scale(1.1);
+}
+/* Small screens */
+@media (max-width: 767px) {
+    .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
