@@ -4,7 +4,7 @@
 This project implements a tax calculation application using JavaScript, HTML, and CSS. The application allows users to input their salary, bonus, deductions (80C and medical expenses), and country of residence, and then calculates their total income, taxable income, tax liability, and net income after tax. The application uses JavaScript for the core calculation logic, including country-specific tax slab implementations for the US, India, and the UK. It incorporates features like real-time input validation, dark/light mode toggle, and a download summary functionality using jsPDF.
 
 ## Output
-<iframe src="https://github.com/niat-web/Tax_Calculation_App" height="1000" width="300" title="Tax_Calculation_App"></iframe>
+<iframe src="https://niat-web.github.io/Tax_Calculation_App/" height="1000" width="300" title="Tax_Calculation_App"></iframe>
 
 ## Project Requirements
 **Technologies:** HTML, CSS, JavaScript, jsPDF
